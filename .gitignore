@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+*.pyc
+data/FairCVtest/data/*.npy
+.pytest_cache/
