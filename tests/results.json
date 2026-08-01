@@ -1,0 +1,26 @@
+{
+  "gender_biased": {
+    "demographic_parity_difference": 0.1458070503215087,
+    "equalized_odds_difference": 0.6073252988146605,
+    "dp_pass": false,
+    "eo_pass": false
+  },
+  "ethnicity_biased": {
+    "demographic_parity_difference": 0.4499776085982983,
+    "equalized_odds_difference": 0.6594594594594594,
+    "dp_pass": false,
+    "eo_pass": false
+  },
+  "fair_gender": {
+    "demographic_parity_difference": 0.02008376643684931,
+    "equalized_odds_difference": 0.03251004314834105,
+    "dp_pass": true,
+    "eo_pass": true
+  },
+  "fair_ethnicity": {
+    "demographic_parity_difference": 0.03289956807719335,
+    "equalized_odds_difference": 0.033943861216588544,
+    "dp_pass": true,
+    "eo_pass": true
+  }
+}
