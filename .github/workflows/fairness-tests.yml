@@ -19,7 +19,7 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r requirements-ci.txt
       - name: Run fairness test suite
         run: pytest tests/ -v
       - name: Upload results
