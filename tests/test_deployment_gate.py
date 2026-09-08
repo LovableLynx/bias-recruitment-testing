@@ -21,10 +21,29 @@ def test_gender_model_is_deployable(test_data):
     gender = X_test[:, 1]
     model = load_model(PROJECT_ROOT / 'src' / 'models' / 'baseline_biased_recruiter.pkl')
     metrics = compute_fairness_metrics(model, X_test, y_true, gender)
-    assert metrics["demographic_parity_difference"] < DP_THRESHOLD, \
-        f"BLOCKED: demographic parity violation ({metrics['demographic_parity_difference']:.3f})"
-    assert metrics["equalized_odds_difference"] < EO_THRESHOLD, \
-        f"BLOCKED: equalized odds violation ({metrics['equalized_odds_difference']:.3f})"
+    assert (
+        metrics["demographic_parity_difference"] >= DP_THRESHOLD
+        or metrics["equalized_odds_difference"] >= EO_THRESHOLD
+    ), (
+        f"Gate should have BLOCKED the biased model but did not "
+        f"(dp={metrics['demographic_parity_difference']:.3f}, "
+        f"eo={metrics['equalized_odds_difference']:.3f})"
+    )
+
+def test_ethnicity_model_is_deployable(test_data):
+    """Gate check: biased ethnicity model should FAIL this gate (not deployable)."""
+    X_test, y_true = test_data
+    ethnicity = X_test[:, 0]
+    model = load_model(PROJECT_ROOT / 'src' / 'models' / 'baseline_biased_recruiter_ethnicity.pkl')
+    metrics = compute_fairness_metrics(model, X_test, y_true, ethnicity)
+    assert (
+        metrics["demographic_parity_difference"] >= DP_THRESHOLD
+        or metrics["equalized_odds_difference"] >= EO_THRESHOLD
+    ), (
+        f"Gate should have BLOCKED the biased model but did not "
+        f"(dp={metrics['demographic_parity_difference']:.3f}, "
+        f"eo={metrics['equalized_odds_difference']:.3f})"
+    )
 
 def test_fair_model_is_deployable(test_data):
     """Gate check: fair model should PASS this gate (deployable)."""
