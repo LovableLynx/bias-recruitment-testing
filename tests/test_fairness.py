@@ -73,18 +73,3 @@ def test_fair_model_passes_ethnicity(test_data):
     metrics, dp_pass, eo_pass = run_fairness_check("fair_ethnicity", model_path, X_test, y_true, ethnicity)
     assert dp_pass, f"Demographic parity failed: {metrics['demographic_parity_difference']:.3f}"
     assert eo_pass, f"Equalized odds failed: {metrics['equalized_odds_difference']:.3f}"
-
-
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
-
-def compute_performance_metrics(model, X_test, y_true):
-    y_pred = model.predict(X_test)
-    y_proba = model.predict_proba(X_test)[:, 1] if hasattr(model, "predict_proba") else y_pred
-
-    return {
-        "accuracy": accuracy_score(y_true, y_pred),
-        "precision": precision_score(y_true, y_pred),
-        "recall": recall_score(y_true, y_pred),
-        "f1": f1_score(y_true, y_pred),
-        "auc": roc_auc_score(y_true, y_proba)
-    }
