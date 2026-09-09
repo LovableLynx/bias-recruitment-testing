@@ -2,24 +2,35 @@
 # Bias as a Test Case: A Software Testing Framework for Continuous Fairness Assertions in AI Recruitment Pipelines
 
 Proof-of-concept research project exploring fairness detection as an automated,
-CI/CD-integrated software testing artifact — treating bias checks as pytest
+CI-integrated software testing artifact — treating bias checks as pytest
 assertions rather than standalone data-science analysis.
 
 ## Overview
 
 This project trains baseline recruitment-scoring models on the [FairCVdb](https://github.com/BiDAlab/FairCVtest)
 dataset (Peña et al., 2020) — one trained on gender-biased labels, one on
-ethnicity-biased labels, one on unbiased ("blind") labels — then wraps
+ethnicity-biased labels, one on blind-label ("reference") labels — then wraps
 fairness metrics (demographic parity, equalized odds) in an automated pytest
-suite that runs on every push via GitHub Actions.
+suite that runs on every push via GitHub Actions. All three models are trained
+on the same feature set, which includes the raw gender/ethnicity columns; only
+the training *labels* differ in how they were constructed. See the paper for
+why this matters and why the blind-label model is called a "reference" model
+rather than "fair."
 
-Two claims are tested:
+Three things are tested:
 
-1. **Detection accuracy** (`tests/test_fairness.py`) — confirms the metrics
-   correctly identify known-biased models as biased and known-fair models as fair.
-2. **Deployment gate** (`tests/test_deployment_gate.py`) — simulates a CI/CD
-   quality gate that blocks a biased model from passing, the way a failed
-   unit test blocks a bad deploy.
+1. **Fairness classification** (`tests/test_fairness.py`) — confirms the metrics
+   correctly classify known-biased models as biased and the reference model as
+   fair-by-construction, on known fixtures. This does not independently verify
+   the correctness of the underlying `fairlearn`/`aequitas` metric implementations
+   themselves, which are treated as trusted instruments.
+2. **Deployment gate** (`tests/test_deployment_gate.py`) — simulates the
+   pass/fail logic of a deployment quality gate that would block a biased model,
+   the way a failed unit test blocks a bad deploy. This is CI, not CD: no
+   deployment job is actually gated on this workflow's result.
+3. **Mutation testing** (`scripts/mutation_test_gate.py`) — injects
+   representative faults into the deployment gate's test logic and checks
+   whether they're caught; see `scripts/mutation_results.json` for results.
 
 ## Project structure
 
@@ -30,9 +41,11 @@ bias-recruitment-testing/
 │   ├── fairness_checks.py # fairness + performance metric helpers
 │   └── models/             # saved baseline models (.pkl)
 ├── notebooks/               # exploratory data analysis
+├── scripts/
+│   └── mutation_test_gate.py  # fault-injection tests of the gate's test logic
 ├── tests/
 │   ├── conftest.py          # shared test-data fixture
-│   ├── test_fairness.py     # Claim 1: detection accuracy
+│   ├── test_fairness.py     # Claim 1: fairness classification
 │   └── test_deployment_gate.py  # Claim 2: deployment gate
 └── .github/workflows/       # CI pipeline definition
 ```
@@ -40,8 +53,11 @@ bias-recruitment-testing/
 ## Dataset
 
 [FairCVdb](https://github.com/BiDAlab/FairCVtest) — 24,000 synthetic resume
-profiles with blind (unbiased) and biased (gender/ethnicity) scores, tracked
-via Git LFS.
+profiles with blind-label and biased-label (gender/ethnicity) scores, tracked
+via Git LFS. "Blind" describes how the training label was constructed (without
+a demographic penalty term), not which features the model sees at inference
+time — all profiles, including those scored by the blind-label model, still
+include raw gender/ethnicity columns as input features.
 
 ## Fairness metrics
 
