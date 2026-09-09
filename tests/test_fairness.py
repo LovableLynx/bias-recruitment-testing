@@ -58,18 +58,18 @@ def test_ethnicity_fairness(test_data):
         f"Expected equalized odds violation on biased model, "
         f"but disparity ({metrics['equalized_odds_difference']:.3f}) was within threshold"
     )
-def test_fair_model_passes_gender(test_data):
+def test_reference_model_passes_gender(test_data):
     X_test, y_true = test_data
     gender = X_test[:, 1]
     model_path = PROJECT_ROOT / 'src' / 'models' / 'baseline_fair_recruiter.pkl'
-    metrics, dp_pass, eo_pass = run_fairness_check("fair_gender", model_path, X_test, y_true, gender)
+    metrics, dp_pass, eo_pass = run_fairness_check("reference_gender", model_path, X_test, y_true, gender)
     assert dp_pass, f"Demographic parity failed: {metrics['demographic_parity_difference']:.3f}"
     assert eo_pass, f"Equalized odds failed: {metrics['equalized_odds_difference']:.3f}"
 
-def test_fair_model_passes_ethnicity(test_data):
+def test_reference_model_passes_ethnicity(test_data):
     X_test, y_true = test_data
     ethnicity = X_test[:, 0]
     model_path = PROJECT_ROOT / 'src' / 'models' / 'baseline_fair_recruiter.pkl'
-    metrics, dp_pass, eo_pass = run_fairness_check("fair_ethnicity", model_path, X_test, y_true, ethnicity)
+    metrics, dp_pass, eo_pass = run_fairness_check("reference_ethnicity", model_path, X_test, y_true, ethnicity)
     assert dp_pass, f"Demographic parity failed: {metrics['demographic_parity_difference']:.3f}"
     assert eo_pass, f"Equalized odds failed: {metrics['equalized_odds_difference']:.3f}"
