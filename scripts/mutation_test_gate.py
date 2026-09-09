@@ -76,10 +76,10 @@ ORIGINAL_GATE_TEST = GATE_TEST_SRC.read_text(encoding="utf-8")
 # Each entry: (id, description, old_string, new_string)
 ENFORCEMENT_MUTANTS = [
     (
-        "M1_flip_operator_and_combinator",
-        "Flip >= to < and or to and (reintroduces the original Section 3.4 defect: both conditions inverted).",
-        'if (\n        metrics["demographic_parity_difference"] >= dp_threshold\n        or metrics["equalized_odds_difference"] >= eo_threshold\n    ):\n        return BLOCK\n    return DEPLOY',
-        'if (\n        metrics["demographic_parity_difference"] < dp_threshold\n        and metrics["equalized_odds_difference"] < eo_threshold\n    ):\n        return BLOCK\n    return DEPLOY',
+        "M1_flip_comparison_direction",
+        "Flip both >= to < (a single comparison-direction fault, matching the original Section 3.4 defect; the combinator is left as `or`, unlike M2).",
+        'metrics["demographic_parity_difference"] >= dp_threshold\n        or metrics["equalized_odds_difference"] >= eo_threshold',
+        'metrics["demographic_parity_difference"] < dp_threshold\n        or metrics["equalized_odds_difference"] < eo_threshold',
     ),
     (
         "M2_or_to_and",
