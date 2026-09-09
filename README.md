@@ -21,8 +21,8 @@ Three things are tested:
 
 1. **Fairness classification** (`tests/test_fairness.py`) — confirms the metrics
    correctly classify known-biased models as biased and the reference model as
-   fair-by-construction, on known fixtures. This does not independently verify
-   the correctness of the underlying `fairlearn`/`aequitas` metric implementations
+   satisfying the study's fairness threshold on known fixtures. This does not
+   independently verify the correctness of the underlying `fairlearn`/`aequitas` metric implementations
    themselves, which are treated as trusted instruments.
 2. **Deployment gate** (`tests/test_deployment_gate.py`) — simulates the
    pass/fail logic of a deployment quality gate that would block a biased model,
