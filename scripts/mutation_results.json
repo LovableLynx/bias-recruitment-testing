@@ -19,7 +19,7 @@
         "description": "Flip >= to < and or to and (reintroduces the original Section 3.4 defect: both conditions inverted).",
         "status": "caught",
         "returncode": 1,
-        "output_tail": "            f\"(dp={metrics['demographic_parity_difference']:.3f}, \"\n            f\"eo={metrics['equalized_odds_difference']:.3f})\"\n        )\nE       AssertionError: Gate should have DEPLOYed the reference model but returned BLOCK (dp=0.020, eo=0.033)\nE       assert 'BLOCK' == 'DEPLOY'\nE         \nE         - DEPLOY\nE         + BLOCK\n\ntests\\test_deployment_gate.py:50: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/test_deployment_gate.py::test_gender_model_is_deployable - Asser...\nFAILED tests/test_deployment_gate.py::test_ethnicity_model_is_deployable - As...\nFAILED tests/test_deployment_gate.py::test_reference_model_is_deployable - As...\n============================= 3 failed in 13.29s =============================="
+        "output_tail": "            f\"(dp={metrics['demographic_parity_difference']:.3f}, \"\n            f\"eo={metrics['equalized_odds_difference']:.3f})\"\n        )\nE       AssertionError: Gate should have DEPLOYed the reference model but returned BLOCK (dp=0.020, eo=0.033)\nE       assert 'BLOCK' == 'DEPLOY'\nE         \nE         - DEPLOY\nE         + BLOCK\n\ntests\\test_deployment_gate.py:50: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/test_deployment_gate.py::test_gender_model_is_deployable - Asser...\nFAILED tests/test_deployment_gate.py::test_ethnicity_model_is_deployable - As...\nFAILED tests/test_deployment_gate.py::test_reference_model_is_deployable - As...\n============================== 3 failed in 7.09s =============================="
       },
       {
         "id": "M2_or_to_and",
@@ -27,7 +27,7 @@
         "description": "Change the combinator from `or` to `and` (require both metrics to breach threshold, not either). See Experiment 2 for whether this is equivalent under real model data.",
         "status": "survived",
         "returncode": 0,
-        "output_tail": "============================= test session starts =============================\ncollected 3 items\n\ntests\\test_deployment_gate.py ...                                        [100%]\n\n============================== 3 passed in 9.30s =============================="
+        "output_tail": "============================= test session starts =============================\ncollected 3 items\n\ntests\\test_deployment_gate.py ...                                        [100%]\n\n============================== 3 passed in 5.43s =============================="
       },
       {
         "id": "M5_threshold_widened",
@@ -35,7 +35,7 @@
         "description": "Widen both default thresholds from 0.10 to 0.90, so almost nothing gets blocked.",
         "status": "caught",
         "returncode": 1,
-        "output_tail": "            f\"Gate should have BLOCKED the biased model but returned {decision} \"\n            f\"(dp={metrics['demographic_parity_difference']:.3f}, \"\n            f\"eo={metrics['equalized_odds_difference']:.3f})\"\n        )\nE       AssertionError: Gate should have BLOCKED the biased model but returned DEPLOY (dp=0.450, eo=0.659)\nE       assert 'DEPLOY' == 'BLOCK'\nE         \nE         - BLOCK\nE         + DEPLOY\n\ntests\\test_deployment_gate.py:37: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/test_deployment_gate.py::test_gender_model_is_deployable - Asser...\nFAILED tests/test_deployment_gate.py::test_ethnicity_model_is_deployable - As...\n======================== 2 failed, 1 passed in 20.09s ========================="
+        "output_tail": "            f\"Gate should have BLOCKED the biased model but returned {decision} \"\n            f\"(dp={metrics['demographic_parity_difference']:.3f}, \"\n            f\"eo={metrics['equalized_odds_difference']:.3f})\"\n        )\nE       AssertionError: Gate should have BLOCKED the biased model but returned DEPLOY (dp=0.450, eo=0.659)\nE       assert 'DEPLOY' == 'BLOCK'\nE         \nE         - BLOCK\nE         + DEPLOY\n\ntests\\test_deployment_gate.py:37: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/test_deployment_gate.py::test_gender_model_is_deployable - Asser...\nFAILED tests/test_deployment_gate.py::test_ethnicity_model_is_deployable - As...\n========================= 2 failed, 1 passed in 7.48s ========================="
       },
       {
         "id": "M7_decision_inverted",
@@ -43,7 +43,7 @@
         "description": "Swap the BLOCK/DEPLOY return values (correct condition, inverted outcome).",
         "status": "caught",
         "returncode": 1,
-        "output_tail": "            f\"(dp={metrics['demographic_parity_difference']:.3f}, \"\n            f\"eo={metrics['equalized_odds_difference']:.3f})\"\n        )\nE       AssertionError: Gate should have DEPLOYed the reference model but returned BLOCK (dp=0.020, eo=0.033)\nE       assert 'BLOCK' == 'DEPLOY'\nE         \nE         - DEPLOY\nE         + BLOCK\n\ntests\\test_deployment_gate.py:50: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/test_deployment_gate.py::test_gender_model_is_deployable - Asser...\nFAILED tests/test_deployment_gate.py::test_ethnicity_model_is_deployable - As...\nFAILED tests/test_deployment_gate.py::test_reference_model_is_deployable - As...\n============================= 3 failed in 11.46s =============================="
+        "output_tail": "            f\"(dp={metrics['demographic_parity_difference']:.3f}, \"\n            f\"eo={metrics['equalized_odds_difference']:.3f})\"\n        )\nE       AssertionError: Gate should have DEPLOYed the reference model but returned BLOCK (dp=0.020, eo=0.033)\nE       assert 'BLOCK' == 'DEPLOY'\nE         \nE         - DEPLOY\nE         + BLOCK\n\ntests\\test_deployment_gate.py:50: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/test_deployment_gate.py::test_gender_model_is_deployable - Asser...\nFAILED tests/test_deployment_gate.py::test_ethnicity_model_is_deployable - As...\nFAILED tests/test_deployment_gate.py::test_reference_model_is_deployable - As...\n============================== 3 failed in 7.34s =============================="
       },
       {
         "id": "M3_drop_ethnicity_gate_test",
@@ -51,7 +51,7 @@
         "description": "Delete the ethnicity gate test entirely (coverage gap: gender-only gating).",
         "status": "survived",
         "returncode": 0,
-        "output_tail": "============================= test session starts =============================\ncollected 2 items\n\ntests\\_mutants\\M3_drop_ethnicity_gate_test\\tests\\test_deployment_gate_mutant.py . [ 50%]\n.                                                                        [100%]\n\n============================= 2 passed in 12.29s =============================="
+        "output_tail": "============================= test session starts =============================\ncollected 2 items\n\ntests\\_mutants\\M3_drop_ethnicity_gate_test\\tests\\test_deployment_gate_mutant.py . [ 50%]\n.                                                                        [100%]\n\n============================== 2 passed in 5.90s =============================="
       },
       {
         "id": "M6_vacuous_assertion",
@@ -59,7 +59,7 @@
         "description": "Replace the gender gate's assertion with unconditional `assert True` (gate result never actually consumed).",
         "status": "survived",
         "returncode": 0,
-        "output_tail": "============================= test session starts =============================\ncollected 3 items\n\ntests\\_mutants\\M6_vacuous_assertion\\tests\\test_deployment_gate_mutant.py . [ 33%]\n..                                                                       [100%]\n\n============================= 3 passed in 12.04s =============================="
+        "output_tail": "============================= test session starts =============================\ncollected 3 items\n\ntests\\_mutants\\M6_vacuous_assertion\\tests\\test_deployment_gate_mutant.py . [ 33%]\n..                                                                       [100%]\n\n============================== 3 passed in 6.35s =============================="
       },
       {
         "id": "M4_swap_sensitive_attribute",
@@ -67,13 +67,13 @@
         "description": "Use gender as the sensitive feature in the ethnicity gate test (wrong column, index 1 instead of 0) -- a test-fixture bug, not a gate-logic bug.",
         "status": "caught",
         "returncode": 1,
-        "output_tail": ">       assert decision == BLOCK, (\n            f\"Gate should have BLOCKED the biased model but returned {decision} \"\n            f\"(dp={metrics['demographic_parity_difference']:.3f}, \"\n            f\"eo={metrics['equalized_odds_difference']:.3f})\"\n        )\nE       AssertionError: Gate should have BLOCKED the biased model but returned DEPLOY (dp=0.013, eo=0.041)\nE       assert 'DEPLOY' == 'BLOCK'\nE         \nE         - BLOCK\nE         + DEPLOY\n\ntests\\_mutants\\M4_swap_sensitive_attribute\\tests\\test_deployment_gate_mutant.py:37: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/_mutants/M4_swap_sensitive_attribute/tests/test_deployment_gate_mutant.py::test_ethnicity_model_is_deployable\n======================== 1 failed, 2 passed in 11.25s ========================="
+        "output_tail": ">       assert decision == BLOCK, (\n            f\"Gate should have BLOCKED the biased model but returned {decision} \"\n            f\"(dp={metrics['demographic_parity_difference']:.3f}, \"\n            f\"eo={metrics['equalized_odds_difference']:.3f})\"\n        )\nE       AssertionError: Gate should have BLOCKED the biased model but returned DEPLOY (dp=0.013, eo=0.041)\nE       assert 'DEPLOY' == 'BLOCK'\nE         \nE         - BLOCK\nE         + DEPLOY\n\ntests\\_mutants\\M4_swap_sensitive_attribute\\tests\\test_deployment_gate_mutant.py:37: AssertionError\n=========================== short test summary info ===========================\nFAILED tests/_mutants/M4_swap_sensitive_attribute/tests/test_deployment_gate_mutant.py::test_ethnicity_model_is_deployable\n========================= 1 failed, 2 passed in 7.03s ========================="
       }
     ]
   },
   "experiment_2_boolean_logic_fixtures": {
-    "m2_is_equivalent_on_real_model_data": true,
-    "m2_is_equivalent_in_general": false,
+    "m2_equivalent_on_real_fixtures": true,
+    "m2_equivalent_as_gate_function": false,
     "note": "M2 (or -> and) survives Experiment 1 because every real biased-model fixture in this dataset happens to breach both DP and EO simultaneously, making `or` and `and` agree on all three real fixtures. B2 and B3 below are constructed so that only one metric breaches threshold, which is sufficient to show `or` and `and` are NOT equivalent in general: M2 is an equivalent mutant with respect to this dataset's specific fixtures, not an equivalent mutant of the gate logic itself.",
     "fixtures": [
       {

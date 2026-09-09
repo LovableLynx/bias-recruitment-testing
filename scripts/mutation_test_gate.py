@@ -168,8 +168,8 @@ def run_boolean_logic_experiment() -> dict:
             "mutant_distinguished": differs,
         })
     return {
-        "m2_is_equivalent_on_real_model_data": True,
-        "m2_is_equivalent_in_general": not distinguished,
+        "m2_equivalent_on_real_fixtures": True,
+        "m2_equivalent_as_gate_function": not distinguished,
         "note": (
             "M2 (or -> and) survives Experiment 1 because every real biased-model "
             "fixture in this dataset happens to breach both DP and EO simultaneously, "
@@ -317,8 +317,8 @@ def main():
     for row in boolean_logic_results["fixtures"]:
         marker = "DISTINGUISHES or/and" if row["mutant_distinguished"] else "agrees with or/and"
         print(f"  [{row['fixture']}] dp={row['dp']} eo={row['eo']}: {marker}")
-    print(f"  M2 equivalent on real model data only: {boolean_logic_results['m2_is_equivalent_on_real_model_data']}")
-    print(f"  M2 equivalent in general (any inputs):  {boolean_logic_results['m2_is_equivalent_in_general']}")
+    print(f"  M2 equivalent on real fixtures:     {boolean_logic_results['m2_equivalent_on_real_fixtures']}")
+    print(f"  M2 equivalent as gate function:     {boolean_logic_results['m2_equivalent_as_gate_function']}")
 
     summary = {
         "experiment_1_mutants": {
