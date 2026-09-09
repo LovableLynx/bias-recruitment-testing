@@ -24,13 +24,17 @@ Three things are tested:
    satisfying the study's fairness threshold on known fixtures. This does not
    independently verify the correctness of the underlying `fairlearn`/`aequitas` metric implementations
    themselves, which are treated as trusted instruments.
-2. **Deployment gate** (`tests/test_deployment_gate.py`) — simulates the
-   pass/fail logic of a deployment quality gate that would block a biased model,
-   the way a failed unit test blocks a bad deploy. This is CI, not CD: no
-   deployment job is actually gated on this workflow's result.
-3. **Mutation testing** (`scripts/mutation_test_gate.py`) — injects
-   representative faults into the deployment gate's test logic and checks
-   whether they're caught; see `scripts/mutation_results.json` for results.
+2. **Deployment gate** (`src/deployment_gate.py`, tested by
+   `tests/test_deployment_gate.py`) — `evaluate_gate(metrics)` is a standalone
+   function, independent of any test framework, that returns `BLOCK` or `DEPLOY`.
+   Separating it from the tests that check it means the gate's own logic can be
+   mutated on its own (see below), not just the assertions around it. This is
+   CI, not CD: no deployment job is actually gated on this workflow's result.
+3. **Mutation testing** (`scripts/mutation_test_gate.py`) — injects representative
+   faults either into `deployment_gate.py` itself (checked by the real,
+   unmodified tests) or into the tests (checked against the real, unmodified
+   gate), and records whether each is caught; see `scripts/mutation_results.json`
+   for results.
 
 ## Project structure
 
@@ -39,10 +43,11 @@ bias-recruitment-testing/
 ├── data/FairCVtest/       # FairCVdb dataset (via Git LFS)
 ├── src/
 │   ├── fairness_checks.py # fairness + performance metric helpers
+│   ├── deployment_gate.py # evaluate_gate(): metrics -> BLOCK / DEPLOY
 │   └── models/             # saved baseline models (.pkl)
 ├── notebooks/               # exploratory data analysis
 ├── scripts/
-│   └── mutation_test_gate.py  # fault-injection tests of the gate's test logic
+│   └── mutation_test_gate.py  # fault-injection tests of the gate and its test suite
 ├── tests/
 │   ├── conftest.py          # shared test-data fixture
 │   ├── test_fairness.py     # Claim 1: fairness classification
