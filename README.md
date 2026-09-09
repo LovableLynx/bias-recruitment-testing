@@ -17,19 +17,26 @@ the training *labels* differ in how they were constructed. See the paper for
 why this matters and why the blind-label model is called a "reference" model
 rather than "fair."
 
-Three things are tested:
+**What is tested:**
 
 1. **Fairness classification** (`tests/test_fairness.py`) — confirms the metrics
    correctly classify known-biased models as biased and the reference model as
    satisfying the study's fairness threshold on known fixtures. This does not
    independently verify the correctness of the underlying `fairlearn`/`aequitas` metric implementations
    themselves, which are treated as trusted instruments.
-2. **Deployment gate** (`src/deployment_gate.py`, tested by
-   `tests/test_deployment_gate.py`) — `evaluate_gate(metrics)` is a standalone
-   function, independent of any test framework, that returns `BLOCK` or `DEPLOY`.
-   Separating it from the tests that check it means the gate's own logic can be
-   mutated on its own (see below), not just the assertions around it. This is
-   CI, not CD: no deployment job is actually gated on this workflow's result.
+2. **Deployment-gate enforcement** (`src/deployment_gate.py`, tested by
+   `tests/test_deployment_gate.py` and `tests/test_gate_boundary_cases.py`) —
+   `evaluate_gate(metrics)` is a standalone function, independent of any test
+   framework, that returns `BLOCK` or `DEPLOY`. Separating it from the tests
+   that check it means the gate's own logic can be mutated on its own (see
+   below), not just the assertions around it. `test_gate_boundary_cases.py`
+   adds direct unit tests on synthetic metric values (single-metric breach,
+   exact-threshold edge) that the three real trained models alone don't
+   exercise. This is CI, not CD: no deployment job is actually gated on this
+   workflow's result.
+
+**How the framework is evaluated:**
+
 3. **Mutation testing** (`scripts/mutation_test_gate.py`) — injects representative
    faults either into `deployment_gate.py` itself (checked by the real,
    unmodified tests) or into the tests (checked against the real, unmodified
@@ -47,11 +54,14 @@ bias-recruitment-testing/
 │   └── models/             # saved baseline models (.pkl)
 ├── notebooks/               # exploratory data analysis
 ├── scripts/
-│   └── mutation_test_gate.py  # fault-injection tests of the gate and its test suite
+│   ├── mutation_test_gate.py  # fault-injection tests of the gate and its test suite
+│   └── mutation_results.json  # raw per-mutant results from the last run
 ├── tests/
-│   ├── conftest.py          # shared test-data fixture
-│   ├── test_fairness.py     # Claim 1: fairness classification
-│   └── test_deployment_gate.py  # Claim 2: deployment gate
+│   ├── conftest.py                 # shared test-data fixture
+│   ├── test_fairness.py            # fairness classification
+│   ├── test_deployment_gate.py     # deployment-gate enforcement (real models)
+│   ├── test_gate_boundary_cases.py # deployment-gate enforcement (synthetic boundary cases)
+│   └── test_aequitas_crossvalidation.py  # independent aequitas cross-check
 └── .github/workflows/       # CI pipeline definition
 ```
 
