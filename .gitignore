@@ -4,3 +4,4 @@ __pycache__/
 data/FairCVtest/data/*.npy
 !data/FairCVtest/data/FairCVdb.npy
 .pytest_cache/
+tests/_mutants/
