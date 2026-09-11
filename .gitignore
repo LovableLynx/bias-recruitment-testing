@@ -5,3 +5,6 @@ data/FairCVtest/data/*.npy
 !data/FairCVtest/data/FairCVdb.npy
 .pytest_cache/
 tests/_mutants/
+submission/
+cover_letter.md
+mutation_study/session.sqlite
