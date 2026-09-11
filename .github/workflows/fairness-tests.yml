@@ -28,3 +28,31 @@ jobs:
         with:
           name: fairness-results
           path: tests/results.json
+
+  # Demonstrates the gate's result actually being enforced against a
+  # downstream step, not just reported (Section 7's CI-only limitation).
+  # This job only runs if fairness-check succeeded: GitHub Actions skips a
+  # `needs:` job automatically when its dependency fails, so a fairness-test
+  # or gate-test failure here blocks this job from running at all, the same
+  # way a real deployment step would be blocked. The action taken is a
+  # scoped proof-of-concept stand-in (tagging the model artifact as
+  # approved), not a production deployment.
+  deploy-approval:
+    needs: fairness-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Mark models as approved for deployment
+        run: |
+          mkdir -p deploy-approval
+          echo "Deployment approved by fairness-check job at $(date -u +%Y-%m-%dT%H:%M:%SZ)" > deploy-approval/APPROVED.txt
+          echo "Commit: ${{ github.sha }}" >> deploy-approval/APPROVED.txt
+          cat deploy-approval/APPROVED.txt
+      - name: Upload deployment approval artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-approval
+          path: deploy-approval/APPROVED.txt
