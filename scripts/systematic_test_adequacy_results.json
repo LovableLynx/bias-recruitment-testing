@@ -1,0 +1,261 @@
+{
+  "rule": {
+    "delete_test": "remove the entire test function",
+    "vacuous_assertion": "replace the test's assertion(s) with `assert True`",
+    "wrong_fixture_column": "swap X_test[:, 0] <-> X_test[:, 1] where such a read exists; not applicable otherwise"
+  },
+  "total_candidates_generated": 30,
+  "applicable_candidates": 23,
+  "caught": 2,
+  "survived": 21,
+  "kill_rate": 0.087,
+  "overlap_with_original_hand_picked_mutants": {
+    "M3_drop_ethnicity_gate_test": {
+      "matches_mechanical_candidate": "test_deployment_gate__test_ethnicity_model_is_deployable__delete_test",
+      "mechanical_status": "survived"
+    },
+    "M4_swap_sensitive_attribute": {
+      "matches_mechanical_candidate": "test_deployment_gate__test_ethnicity_model_is_deployable__wrong_fixture_column",
+      "mechanical_status": "caught"
+    },
+    "M6_vacuous_assertion": {
+      "matches_mechanical_candidate": "test_deployment_gate__test_gender_model_is_deployable__vacuous_assertion",
+      "mechanical_status": "survived"
+    }
+  },
+  "all_results": [
+    {
+      "id": "test_deployment_gate__test_gender_model_is_deployable__delete_test",
+      "file": "test_deployment_gate.py",
+      "test_function": "test_gender_model_is_deployable",
+      "mutation_type": "delete-test",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_deployment_gate__test_gender_model_is_deployable__vacuous_assertion",
+      "file": "test_deployment_gate.py",
+      "test_function": "test_gender_model_is_deployable",
+      "mutation_type": "vacuous-assertion",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_deployment_gate__test_gender_model_is_deployable__wrong_fixture_column",
+      "file": "test_deployment_gate.py",
+      "test_function": "test_gender_model_is_deployable",
+      "mutation_type": "wrong-fixture-column",
+      "status": "caught",
+      "returncode": 1
+    },
+    {
+      "id": "test_deployment_gate__test_ethnicity_model_is_deployable__delete_test",
+      "file": "test_deployment_gate.py",
+      "test_function": "test_ethnicity_model_is_deployable",
+      "mutation_type": "delete-test",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_deployment_gate__test_ethnicity_model_is_deployable__vacuous_assertion",
+      "file": "test_deployment_gate.py",
+      "test_function": "test_ethnicity_model_is_deployable",
+      "mutation_type": "vacuous-assertion",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_deployment_gate__test_ethnicity_model_is_deployable__wrong_fixture_column",
+      "file": "test_deployment_gate.py",
+      "test_function": "test_ethnicity_model_is_deployable",
+      "mutation_type": "wrong-fixture-column",
+      "status": "caught",
+      "returncode": 1
+    },
+    {
+      "id": "test_deployment_gate__test_reference_model_is_deployable__delete_test",
+      "file": "test_deployment_gate.py",
+      "test_function": "test_reference_model_is_deployable",
+      "mutation_type": "delete-test",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_deployment_gate__test_reference_model_is_deployable__vacuous_assertion",
+      "file": "test_deployment_gate.py",
+      "test_function": "test_reference_model_is_deployable",
+      "mutation_type": "vacuous-assertion",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_deployment_gate__test_reference_model_is_deployable__wrong_fixture_column",
+      "file": "test_deployment_gate.py",
+      "test_function": "test_reference_model_is_deployable",
+      "mutation_type": "wrong-fixture-column",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_when_only_dp_breaches__delete_test",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_when_only_dp_breaches",
+      "mutation_type": "delete-test",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_when_only_dp_breaches__vacuous_assertion",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_when_only_dp_breaches",
+      "mutation_type": "vacuous-assertion",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_when_only_dp_breaches__wrong_fixture_column",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_when_only_dp_breaches",
+      "mutation_type": "wrong-fixture-column",
+      "status": "not-applicable"
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_when_only_eo_breaches__delete_test",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_when_only_eo_breaches",
+      "mutation_type": "delete-test",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_when_only_eo_breaches__vacuous_assertion",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_when_only_eo_breaches",
+      "mutation_type": "vacuous-assertion",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_when_only_eo_breaches__wrong_fixture_column",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_when_only_eo_breaches",
+      "mutation_type": "wrong-fixture-column",
+      "status": "not-applicable"
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_when_both_breach__delete_test",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_when_both_breach",
+      "mutation_type": "delete-test",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_when_both_breach__vacuous_assertion",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_when_both_breach",
+      "mutation_type": "vacuous-assertion",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_when_both_breach__wrong_fixture_column",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_when_both_breach",
+      "mutation_type": "wrong-fixture-column",
+      "status": "not-applicable"
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_deploys_when_neither_breaches__delete_test",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_deploys_when_neither_breaches",
+      "mutation_type": "delete-test",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_deploys_when_neither_breaches__vacuous_assertion",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_deploys_when_neither_breaches",
+      "mutation_type": "vacuous-assertion",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_deploys_when_neither_breaches__wrong_fixture_column",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_deploys_when_neither_breaches",
+      "mutation_type": "wrong-fixture-column",
+      "status": "not-applicable"
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_at_exact_dp_threshold__delete_test",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_at_exact_dp_threshold",
+      "mutation_type": "delete-test",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_at_exact_dp_threshold__vacuous_assertion",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_at_exact_dp_threshold",
+      "mutation_type": "vacuous-assertion",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_at_exact_dp_threshold__wrong_fixture_column",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_at_exact_dp_threshold",
+      "mutation_type": "wrong-fixture-column",
+      "status": "not-applicable"
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_at_exact_eo_threshold__delete_test",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_at_exact_eo_threshold",
+      "mutation_type": "delete-test",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_at_exact_eo_threshold__vacuous_assertion",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_at_exact_eo_threshold",
+      "mutation_type": "vacuous-assertion",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_blocks_at_exact_eo_threshold__wrong_fixture_column",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_blocks_at_exact_eo_threshold",
+      "mutation_type": "wrong-fixture-column",
+      "status": "not-applicable"
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_deploys_just_below_both_thresholds__delete_test",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_deploys_just_below_both_thresholds",
+      "mutation_type": "delete-test",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_deploys_just_below_both_thresholds__vacuous_assertion",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_deploys_just_below_both_thresholds",
+      "mutation_type": "vacuous-assertion",
+      "status": "survived",
+      "returncode": 0
+    },
+    {
+      "id": "test_gate_boundary_cases__test_gate_deploys_just_below_both_thresholds__wrong_fixture_column",
+      "file": "test_gate_boundary_cases.py",
+      "test_function": "test_gate_deploys_just_below_both_thresholds",
+      "mutation_type": "wrong-fixture-column",
+      "status": "not-applicable"
+    }
+  ]
+}
