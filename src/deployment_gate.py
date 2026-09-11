@@ -18,7 +18,7 @@ def evaluate_gate(metrics, dp_threshold=DP_THRESHOLD, eo_threshold=EO_THRESHOLD)
     """Return BLOCK if either fairness metric meets or exceeds its threshold, else DEPLOY."""
     if (
         metrics["demographic_parity_difference"] >= dp_threshold
-        and metrics["equalized_odds_difference"] >= eo_threshold
+        or metrics["equalized_odds_difference"] >= eo_threshold
     ):
         return BLOCK
     return DEPLOY
