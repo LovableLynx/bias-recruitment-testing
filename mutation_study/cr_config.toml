@@ -1,8 +1,0 @@
-[cosmic-ray]
-module-path = "src/deployment_gate.py"
-timeout = 30.0
-excluded-modules = []
-test-command = "python -m pytest tests/test_deployment_gate.py tests/test_gate_boundary_cases.py -x -q"
-
-[cosmic-ray.distributor]
-name = "local"
