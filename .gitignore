@@ -5,3 +5,12 @@ data/FairCVtest/data/*.npy
 !data/FairCVtest/data/FairCVdb.npy
 .pytest_cache/
 tests/_mutants/
+submission/
+cover_letter.md
+eisej_submission/*.aux
+eisej_submission/*.bbl
+eisej_submission/*.blg
+eisej_submission/*.log
+eisej_submission/*.out
+eisej_submission/_minted/
+mutation_study/session.sqlite

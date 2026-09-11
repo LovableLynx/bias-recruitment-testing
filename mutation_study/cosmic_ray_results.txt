@@ -1,0 +1,63 @@
+[job-id] 9b68032a505246b8aba586892e14de12
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_Eq 0
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] b812c5635a0847ad930d380c979ea3a4
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_Eq 1
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] f96634a70cb04162b5673d361e648c31
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_NotEq 0
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 0d36c68e08a346b1824bb686106c0aab
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_NotEq 1
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 3317b82589eb49a2b9f8deaa9e1f162e
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_Lt 0
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 10dcfb96514d44748bcff208a4cbe337
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_Lt 1
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 0425079ff88f496f81b7624a317acf91
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_LtE 0
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] cd7c556e547b4cb5abd93b2783b4bb2c
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_LtE 1
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] e272dedfc7904748b7bf7b07a9ed4583
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_Gt 0
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] e56c4ebc332a439cbd2c3eac10b16c13
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_Gt 1
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 74d33cda8b664c06a802118c41a6ec61
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_Is 0
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 3bfb8cd1ab0f4dacbef489267ffbe695
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_Is 1
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 89709916503d4fb1af6da6d2450ead3d
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_IsNot 0
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 25a2101c9b604c5eba5ff0bf81c7f004
+src\deployment_gate.py core/ReplaceComparisonOperator_GtE_IsNot 1
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 90e7d096196e48c2ad81dcb5a81c8052
+src\deployment_gate.py core/AddNot 0
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 379e334879dd451a9bf0f0c714dba343
+src\deployment_gate.py core/ReplaceOrWithAnd 0
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] de59ac697a39453783a4e75d1c6c8324
+src\deployment_gate.py core/NumberReplacer 0
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 3f291efc7aa84eda8e257b72cea4198d
+src\deployment_gate.py core/NumberReplacer 1
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] 5d3676ceb1b2495e8fa5c90ff8651bc8
+src\deployment_gate.py core/NumberReplacer 2
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+[job-id] cdd4744fbba74bb7b1d4207e04c77ff3
+src\deployment_gate.py core/NumberReplacer 3
+worker outcome: WorkerOutcome.NORMAL, test outcome: TestOutcome.KILLED
+total jobs: 20
+complete: 20 (100.00%)
+surviving mutants: 0 (0.00%)
