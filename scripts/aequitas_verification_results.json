@@ -1,0 +1,62 @@
+{
+  "purpose": "Independent hand-verification of aequitas's fpr_disparity, fnr_disparity, and ppr_disparity, computed as group-relative-to-reference-group rate ratios via plain numpy, against aequitas's own Group/Bias output, on the same two real model cases (gender_biased, reference_gender) exercised by test_aequitas_crossvalidation.py.",
+  "reference_group": "Male",
+  "all_match": true,
+  "tolerance": 1e-06,
+  "results": [
+    {
+      "case": "gender_biased",
+      "model_file": "baseline_biased_recruiter.pkl",
+      "metric": "fpr_disparity",
+      "aequitas_value": 0.0,
+      "hand_derived_value": 0.0,
+      "abs_difference": 0.0,
+      "match": true
+    },
+    {
+      "case": "gender_biased",
+      "model_file": "baseline_biased_recruiter.pkl",
+      "metric": "fnr_disparity",
+      "aequitas_value": 8.965848105382989,
+      "hand_derived_value": 8.965848105382985,
+      "abs_difference": 3.552713678800501e-15,
+      "match": true
+    },
+    {
+      "case": "gender_biased",
+      "model_file": "baseline_biased_recruiter.pkl",
+      "metric": "ppr_disparity",
+      "aequitas_value": 0.3339483394833948,
+      "hand_derived_value": 0.3339483394833948,
+      "abs_difference": 0.0,
+      "match": true
+    },
+    {
+      "case": "reference_gender",
+      "model_file": "baseline_fair_recruiter.pkl",
+      "metric": "fpr_disparity",
+      "aequitas_value": 1.3072305974316023,
+      "hand_derived_value": 1.3072305974316023,
+      "abs_difference": 0.0,
+      "match": true
+    },
+    {
+      "case": "reference_gender",
+      "model_file": "baseline_fair_recruiter.pkl",
+      "metric": "fnr_disparity",
+      "aequitas_value": 0.5634365634365635,
+      "hand_derived_value": 0.5634365634365633,
+      "abs_difference": 1.1102230246251565e-16,
+      "match": true
+    },
+    {
+      "case": "reference_gender",
+      "model_file": "baseline_fair_recruiter.pkl",
+      "metric": "ppr_disparity",
+      "aequitas_value": 1.0571955719557193,
+      "hand_derived_value": 1.0571955719557193,
+      "abs_difference": 0.0,
+      "match": true
+    }
+  ]
+}

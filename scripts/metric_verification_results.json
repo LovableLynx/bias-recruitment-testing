@@ -1,0 +1,87 @@
+{
+  "purpose": "Independent hand-verification of demographic parity difference and equalized odds difference, computed from their textbook definitions via plain numpy, against fairlearn's demographic_parity_difference and equalized_odds_difference on the same real models and real FairCVdb test split used throughout Section 4.1.",
+  "all_match": true,
+  "tolerance": 1e-09,
+  "results": [
+    {
+      "case": "gender_biased",
+      "model_file": "baseline_biased_recruiter.pkl",
+      "sensitive_attribute_index": 1,
+      "metric": "dp",
+      "fairlearn_value": 0.1458070503215087,
+      "hand_derived_value": 0.1458070503215087,
+      "abs_difference": 0.0,
+      "match": true
+    },
+    {
+      "case": "gender_biased",
+      "model_file": "baseline_biased_recruiter.pkl",
+      "sensitive_attribute_index": 1,
+      "metric": "eo",
+      "fairlearn_value": 0.6073252988146605,
+      "hand_derived_value": 0.6073252988146605,
+      "abs_difference": 0.0,
+      "match": true
+    },
+    {
+      "case": "ethnicity_biased",
+      "model_file": "baseline_biased_recruiter_ethnicity.pkl",
+      "sensitive_attribute_index": 0,
+      "metric": "dp",
+      "fairlearn_value": 0.4499776085982983,
+      "hand_derived_value": 0.4499776085982983,
+      "abs_difference": 0.0,
+      "match": true
+    },
+    {
+      "case": "ethnicity_biased",
+      "model_file": "baseline_biased_recruiter_ethnicity.pkl",
+      "sensitive_attribute_index": 0,
+      "metric": "eo",
+      "fairlearn_value": 0.6594594594594594,
+      "hand_derived_value": 0.6594594594594594,
+      "abs_difference": 0.0,
+      "match": true
+    },
+    {
+      "case": "reference_gender",
+      "model_file": "baseline_fair_recruiter.pkl",
+      "sensitive_attribute_index": 1,
+      "metric": "dp",
+      "fairlearn_value": 0.02008376643684931,
+      "hand_derived_value": 0.02008376643684931,
+      "abs_difference": 0.0,
+      "match": true
+    },
+    {
+      "case": "reference_gender",
+      "model_file": "baseline_fair_recruiter.pkl",
+      "sensitive_attribute_index": 1,
+      "metric": "eo",
+      "fairlearn_value": 0.03251004314834105,
+      "hand_derived_value": 0.03251004314834105,
+      "abs_difference": 0.0,
+      "match": true
+    },
+    {
+      "case": "reference_ethnicity",
+      "model_file": "baseline_fair_recruiter.pkl",
+      "sensitive_attribute_index": 0,
+      "metric": "dp",
+      "fairlearn_value": 0.03289956807719335,
+      "hand_derived_value": 0.03289956807719335,
+      "abs_difference": 0.0,
+      "match": true
+    },
+    {
+      "case": "reference_ethnicity",
+      "model_file": "baseline_fair_recruiter.pkl",
+      "sensitive_attribute_index": 0,
+      "metric": "eo",
+      "fairlearn_value": 0.033943861216588544,
+      "hand_derived_value": 0.033943861216588544,
+      "abs_difference": 0.0,
+      "match": true
+    }
+  ]
+}

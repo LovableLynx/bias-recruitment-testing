@@ -1,0 +1,45 @@
+{
+  "purpose": "Re-run of Sections 4.1-4.2 (fairness classification, gate correctness) with feature indices 0 and 1 (ethnicity, gender) dropped from the input vector for all three models, including the reference model, addressing Section 7's limitation that no model was previously blinded to demographic features.",
+  "blinding_method": "feature removal (drop columns 0, 1 before training and inference)",
+  "original_feature_count": 51,
+  "blinded_feature_count": 49,
+  "all_match_expected": true,
+  "results": [
+    {
+      "model": "reference_blinded",
+      "attribute": "gender",
+      "demographic_parity_difference": 0.015531469198147962,
+      "equalized_odds_difference": 0.021896543173138827,
+      "gate_decision": "DEPLOY",
+      "expected_gate_decision": "DEPLOY",
+      "matches_expected": true
+    },
+    {
+      "model": "reference_blinded",
+      "attribute": "ethnicity",
+      "demographic_parity_difference": 0.028497034972323754,
+      "equalized_odds_difference": 0.025627280172734745,
+      "gate_decision": "DEPLOY",
+      "expected_gate_decision": "DEPLOY",
+      "matches_expected": true
+    },
+    {
+      "model": "gender_biased_blinded",
+      "attribute": "gender",
+      "demographic_parity_difference": 0.07765022624300812,
+      "equalized_odds_difference": 0.3252988146605168,
+      "gate_decision": "BLOCK",
+      "expected_gate_decision": "BLOCK",
+      "matches_expected": true
+    },
+    {
+      "model": "ethnicity_biased_blinded",
+      "attribute": "ethnicity",
+      "demographic_parity_difference": 0.18797688354338601,
+      "equalized_odds_difference": 0.2416001609549997,
+      "gate_decision": "BLOCK",
+      "expected_gate_decision": "BLOCK",
+      "matches_expected": true
+    }
+  ]
+}

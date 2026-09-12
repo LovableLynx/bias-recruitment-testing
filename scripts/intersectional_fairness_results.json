@@ -1,0 +1,126 @@
+{
+  "purpose": "Demographic parity and equalized odds recomputed across the six gender x ethnicity intersectional subgroups, rather than one protected attribute at a time (Sections 3.2, 4.1), for all three real trained models on the real FairCVdb test split.",
+  "threshold": 0.1,
+  "results": [
+    {
+      "model": "reference",
+      "model_file": "baseline_fair_recruiter.pkl",
+      "intersectional_demographic_parity_spread": 0.0600181119105902,
+      "intersectional_equalized_odds_spread": 0.08721036307243213,
+      "dp_pass_at_0.10": true,
+      "eo_pass_at_0.10": true,
+      "group_sizes": {
+        "Female-Eth0": 802,
+        "Female-Eth1": 760,
+        "Female-Eth2": 801,
+        "Male-Eth0": 793,
+        "Male-Eth1": 828,
+        "Male-Eth2": 816
+      },
+      "positive_prediction_rate_by_group": {
+        "Female-Eth0": 0.24189526184538654,
+        "Female-Eth1": 0.22763157894736843,
+        "Female-Eth2": 0.2571785268414482,
+        "Male-Eth0": 0.2597730138713745,
+        "Male-Eth1": 0.20893719806763286,
+        "Male-Eth2": 0.19975490196078433
+      },
+      "fpr_by_group": {
+        "Female-Eth0": 0.01639344262295082,
+        "Female-Eth1": 0.008532423208191127,
+        "Female-Eth2": 0.01680672268907563,
+        "Male-Eth0": 0.012027491408934709,
+        "Male-Eth1": 0.010954616588419406,
+        "Male-Eth2": 0.009202453987730062
+      },
+      "fnr_by_group": {
+        "Female-Eth0": 0.04166666666666663,
+        "Female-Eth1": 0.03448275862068961,
+        "Female-Eth2": 0.04854368932038833,
+        "Male-Eth0": 0.056872037914691975,
+        "Male-Eth1": 0.12169312169312174,
+        "Male-Eth2": 0.04268292682926833
+      }
+    },
+    {
+      "model": "gender_biased",
+      "model_file": "baseline_biased_recruiter.pkl",
+      "intersectional_demographic_parity_spread": 0.18362149067498507,
+      "intersectional_equalized_odds_spread": 0.6356855316125976,
+      "dp_pass_at_0.10": false,
+      "eo_pass_at_0.10": false,
+      "group_sizes": {
+        "Female-Eth0": 802,
+        "Female-Eth1": 760,
+        "Female-Eth2": 801,
+        "Male-Eth0": 793,
+        "Male-Eth1": 828,
+        "Male-Eth2": 816
+      },
+      "positive_prediction_rate_by_group": {
+        "Female-Eth0": 0.07605985037406483,
+        "Female-Eth1": 0.07236842105263158,
+        "Female-Eth2": 0.08114856429463171,
+        "Male-Eth0": 0.25598991172761665,
+        "Male-Eth1": 0.21256038647342995,
+        "Male-Eth2": 0.19975490196078433
+      },
+      "fpr_by_group": {
+        "Female-Eth0": 0.0,
+        "Female-Eth1": 0.0,
+        "Female-Eth2": 0.0,
+        "Male-Eth0": 0.010309278350515464,
+        "Male-Eth1": 0.012519561815336464,
+        "Male-Eth2": 0.010736196319018405
+      },
+      "fnr_by_group": {
+        "Female-Eth0": 0.6822916666666667,
+        "Female-Eth1": 0.6839080459770115,
+        "Female-Eth2": 0.6844660194174756,
+        "Male-Eth0": 0.06635071090047395,
+        "Male-Eth1": 0.11111111111111116,
+        "Male-Eth2": 0.04878048780487809
+      }
+    },
+    {
+      "model": "ethnicity_biased",
+      "model_file": "baseline_biased_recruiter_ethnicity.pkl",
+      "intersectional_demographic_parity_spread": 0.46260879663586135,
+      "intersectional_equalized_odds_spread": 0.674757281553398,
+      "dp_pass_at_0.10": false,
+      "eo_pass_at_0.10": false,
+      "group_sizes": {
+        "Female-Eth0": 802,
+        "Female-Eth1": 760,
+        "Female-Eth2": 801,
+        "Male-Eth0": 793,
+        "Male-Eth1": 828,
+        "Male-Eth2": 816
+      },
+      "positive_prediction_rate_by_group": {
+        "Female-Eth0": 0.5349127182044888,
+        "Female-Eth1": 0.21842105263157896,
+        "Female-Eth2": 0.08364544319600499,
+        "Male-Eth0": 0.5208070617906684,
+        "Male-Eth1": 0.21618357487922704,
+        "Male-Eth2": 0.07230392156862746
+      },
+      "fpr_by_group": {
+        "Female-Eth0": 0.3885245901639344,
+        "Female-Eth1": 0.005119453924914676,
+        "Female-Eth2": 0.0,
+        "Male-Eth0": 0.3470790378006873,
+        "Male-Eth1": 0.01564945226917058,
+        "Male-Eth2": 0.0
+      },
+      "fnr_by_group": {
+        "Female-Eth0": 0.0,
+        "Female-Eth1": 0.06321839080459768,
+        "Female-Eth2": 0.674757281553398,
+        "Male-Eth0": 0.0,
+        "Male-Eth1": 0.10582010582010581,
+        "Male-Eth2": 0.6402439024390244
+      }
+    }
+  ]
+}

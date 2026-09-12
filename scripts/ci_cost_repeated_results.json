@@ -1,0 +1,40 @@
+{
+  "committed_test_suite": {
+    "label": "Full committed test suite (16 tests, 4 modules)",
+    "n_runs": 5,
+    "seconds_each": [
+      17.56,
+      14.38,
+      12.44,
+      11.3,
+      13.17
+    ],
+    "mean_seconds": 13.77,
+    "min_seconds": 11.3,
+    "max_seconds": 17.56
+  },
+  "section_4_5_systematic_sweep": {
+    "label": "Section 4.5 systematic sweep (30 candidate mutants, 23 applicable)",
+    "n_runs": 3,
+    "seconds_each": [
+      92.22,
+      94.04,
+      90.01
+    ],
+    "mean_seconds": 92.09,
+    "min_seconds": 90.01,
+    "max_seconds": 94.04
+  },
+  "section_4_4_cosmic_ray_pass": {
+    "label": "Section 4.4 cosmic-ray pass (20 enforcement-logic mutants)",
+    "n_runs": 3,
+    "seconds_each": [
+      175.53,
+      204.1,
+      227.25
+    ],
+    "mean_seconds": 202.29,
+    "min_seconds": 175.53,
+    "max_seconds": 227.25
+  }
+}

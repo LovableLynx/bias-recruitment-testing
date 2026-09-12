@@ -1,0 +1,25 @@
+{
+  "purpose": "Real wall-clock cost, on this machine, of (1) the committed test suite as it runs on every push, versus (2)-(3) the two mutation-testing passes from Sections 4.4-4.5, which are periodic audits rather than per-commit checks.",
+  "runs": [
+    {
+      "label": "Full committed test suite (16 tests, 4 modules)",
+      "command": "pytest tests/ -q --no-header",
+      "seconds": 12.26,
+      "returncode": 0
+    },
+    {
+      "label": "Section 4.4 cosmic-ray pass (20 enforcement-logic mutants)",
+      "command": "cosmic-ray init+exec",
+      "seconds": 220.73,
+      "returncode": 0
+    },
+    {
+      "label": "Section 4.5 systematic sweep (30 candidate mutants, 23 applicable)",
+      "command": "python scripts/systematic_test_adequacy_mutants.py",
+      "seconds": 108.8,
+      "returncode": 0
+    }
+  ],
+  "committed_suite_seconds": 12.26,
+  "note": "The committed suite (16 tests) is what actually runs on every push in the GitHub Actions workflow (Section 3.3); the two mutation passes are one-off validation experiments (Sections 4.4-4.5), not part of the per-commit CI loop, which is why their cost is reported separately rather than added to the per-commit figure."
+}
