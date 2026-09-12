@@ -140,3 +140,12 @@ proposal on continuous bias detection in AI recruitment systems.
 
 Peña, A., Serna, I., Morales, A., & Fierrez, J. (2020). Bias in Multimodal
 AI: Testbed for Fair Automatic Recruitment. *CVPR Workshops*.
+
+## License
+
+The code in this repository (`src/`, `tests/`, `scripts/`, and the CI
+workflow) is released under the [MIT License](LICENSE). This covers only
+code written for this project; it does not cover third-party dependencies
+such as fairlearn, aequitas, scikit-learn, or the FairCVdb dataset, each of
+which is separately licensed by its own authors and installed via
+`requirements.txt` rather than vendored into this repository.
