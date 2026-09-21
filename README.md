@@ -1,6 +1,19 @@
 
 # Testing the Fairness Gate: Separating Fairness Classification from Enforcement Correctness in Continuous Fairness Testing for AI Recruitment Pipelines
 
+**In short:** this project treats "is this AI recruitment model biased?" as a
+question a test suite should answer automatically, not something a human
+checks after the fact. It trains three recruitment-scoring models (one
+gender-biased, one ethnicity-biased, one reference), wraps fairness metrics in
+pytest, and wires a real GitHub Actions job to **block deployment** when a
+model fails the fairness gate — the same way a failing unit test blocks a
+merge. It then goes a step further than most fairness-testing work by testing
+the tests themselves: 27 hand-selected and tool-generated mutations injected
+into the gate logic, cross-checking two independent fairness libraries against
+hand-derived formulas rather than trusting either as a black box, and a real
+CI run where the deploy-approval step was verified to correctly skip after a
+deliberately broken model was pushed.
+
 Proof-of-concept research project exploring fairness detection as an automated,
 CI-integrated software testing artifact, treating bias checks as pytest
 assertions rather than standalone data-science analysis.
