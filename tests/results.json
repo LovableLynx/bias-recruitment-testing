@@ -42,5 +42,27 @@
     "auc": 0.9975912379297619,
     "dp_pass": true,
     "eo_pass": true
+  },
+  "reference_gender": {
+    "demographic_parity_difference": 0.02008376643684931,
+    "equalized_odds_difference": 0.03251004314834105,
+    "accuracy": 0.976875,
+    "precision": 0.9596412556053812,
+    "recall": 0.9419014084507042,
+    "f1": 0.9506885828520657,
+    "auc": 0.9975912379297619,
+    "dp_pass": true,
+    "eo_pass": true
+  },
+  "reference_ethnicity": {
+    "demographic_parity_difference": 0.03289956807719335,
+    "equalized_odds_difference": 0.033943861216588544,
+    "accuracy": 0.976875,
+    "precision": 0.9596412556053812,
+    "recall": 0.9419014084507042,
+    "f1": 0.9506885828520657,
+    "auc": 0.9975912379297619,
+    "dp_pass": true,
+    "eo_pass": true
   }
 }
