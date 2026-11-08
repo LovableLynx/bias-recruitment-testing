@@ -75,6 +75,20 @@ rather than "fair."
   result. A `deploy-approval` job was added that runs only when the
   fairness/gate suite passes; verified with a real run where it was correctly
   skipped after a deliberately injected fault (see the workflow file).
+- **4.8 Replication on a security gate and a compliance gate**: two further
+  gates built the same way. `src/security_gate.py` decides on a frozen OSV
+  vulnerability scan of three real pinned dependency sets
+  (`data/security_scans/`, made by `scripts/snapshot_osv_scans.py`);
+  `src/compliance_gate.py` applies the four-fifths adverse-impact rule
+  (29 CFR 1607.4(D)) to the three models' per-group selection counts.
+  `scripts/cross_gate_mutation_study.py` runs the same mutant classes and
+  sweep rule, fixed in advance, on all three gates (first run:
+  `scripts/cross_gate_mutation_results_run1.json`); cosmic-ray runs use
+  `mutation_study/cr_config_security.toml` and `cr_config_compliance.toml`.
+  Every surviving tool-generated mutant of the first run is classified in
+  `mutation_study/cosmic_ray_run1_survivors.md`; the tests marked "Added after
+  the first mutation run" close the real gaps, and the second run's results
+  are in the `*_followup_*.json` and `*_run2.jsonl` files.
 - **Section 8, CI/mutation-testing cost** (`scripts/measure_ci_cost.py`,
   `scripts/measure_ci_cost_repeated.py`): real wall-clock timing of the
   committed suite versus the two mutation-testing passes above, supporting
@@ -86,10 +100,13 @@ rather than "fair."
 ```
 bias-recruitment-testing/
 ├── data/FairCVtest/       # FairCVdb dataset (via Git LFS)
+├── data/security_scans/   # 4.8: frozen OSV scans and the pinned dependency sets
 ├── src/
 │   ├── fairness_checks.py # fairness + performance metric helpers
 │   ├── aequitas_checks.py # aequitas disparity-ratio audit helper
 │   ├── deployment_gate.py # evaluate_gate(): metrics -> BLOCK / DEPLOY
+│   ├── security_gate.py   # 4.8: vulnerability scan -> BLOCK / DEPLOY
+│   ├── compliance_gate.py # 4.8: four-fifths rule -> BLOCK / DEPLOY
 │   └── models/             # saved baseline models (.pkl)
 ├── notebooks/               # exploratory data analysis
 ├── scripts/
@@ -107,16 +124,22 @@ bias-recruitment-testing/
 │   ├── intersectional_fairness_results.json
 │   ├── measure_ci_cost.py                  # Section 8: single-run CI/mutation timing
 │   ├── measure_ci_cost_repeated.py         #            repeated-run timing (mean/range)
-│   └── ci_cost_results.json, ci_cost_repeated_results.json
+│   ├── ci_cost_results.json, ci_cost_repeated_results.json
+│   ├── snapshot_osv_scans.py               # 4.8: freeze the OSV scans used by the security gate
+│   └── cross_gate_mutation_study.py        # 4.8: same mutation study on all three gates
 ├── mutation_study/
 │   ├── cr_config.toml            # 4.4: cosmic-ray configuration
-│   └── cosmic_ray_results.txt    #      raw tool-generated mutation results
+│   ├── cosmic_ray_results.txt    #      raw tool-generated mutation results
+│   ├── cr_config_security.toml, cr_config_compliance.toml  # 4.8
+│   └── cosmic_ray_run1_survivors.md  # 4.8: every surviving mutant, classified
 ├── tests/
 │   ├── conftest.py                 # shared test-data fixture
 │   ├── test_fairness.py            # fairness classification
 │   ├── test_deployment_gate.py     # deployment-gate enforcement (real models)
 │   ├── test_gate_boundary_cases.py # deployment-gate enforcement (synthetic boundary cases)
-│   └── test_aequitas_crossvalidation.py  # independent aequitas cross-check
+│   ├── test_aequitas_crossvalidation.py  # independent aequitas cross-check
+│   ├── test_security_gate.py, test_security_gate_boundary_cases.py      # 4.8
+│   └── test_compliance_gate.py, test_compliance_gate_boundary_cases.py  # 4.8
 └── .github/workflows/       # CI pipeline: fairness-check + deploy-approval (4.7)
 ```
 

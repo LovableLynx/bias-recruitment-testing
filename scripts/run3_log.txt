@@ -1,0 +1,142 @@
+.............................................                            [100%]
+45 passed in 24.49s
+[fairness] X1_flip_comparison: real-fixture tests caught; with boundary tests caught
+[fairness] X2_weaken_combinator: real-fixture tests survived; with boundary tests caught
+[fairness] X5_widen_threshold: real-fixture tests caught; with boundary tests caught
+[fairness] X7_swap_outcome: real-fixture tests caught; with boundary tests caught
+[fairness] test_deployment_gate.py::test_gender_model_is_deployable delete-test: survived
+[fairness] test_deployment_gate.py::test_gender_model_is_deployable vacuous-assertion: survived
+[fairness] test_deployment_gate.py::test_gender_model_is_deployable wrong-input: caught
+[fairness] test_deployment_gate.py::test_ethnicity_model_is_deployable delete-test: survived
+[fairness] test_deployment_gate.py::test_ethnicity_model_is_deployable vacuous-assertion: survived
+[fairness] test_deployment_gate.py::test_ethnicity_model_is_deployable wrong-input: caught
+[fairness] test_deployment_gate.py::test_reference_model_is_deployable delete-test: survived
+[fairness] test_deployment_gate.py::test_reference_model_is_deployable vacuous-assertion: survived
+[fairness] test_deployment_gate.py::test_reference_model_is_deployable wrong-input: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_when_only_dp_breaches delete-test: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_when_only_dp_breaches vacuous-assertion: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_when_only_dp_breaches wrong-input: not-applicable
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_when_only_eo_breaches delete-test: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_when_only_eo_breaches vacuous-assertion: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_when_only_eo_breaches wrong-input: not-applicable
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_when_both_breach delete-test: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_when_both_breach vacuous-assertion: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_when_both_breach wrong-input: not-applicable
+[fairness] test_gate_boundary_cases.py::test_gate_deploys_when_neither_breaches delete-test: survived
+[fairness] test_gate_boundary_cases.py::test_gate_deploys_when_neither_breaches vacuous-assertion: survived
+[fairness] test_gate_boundary_cases.py::test_gate_deploys_when_neither_breaches wrong-input: not-applicable
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_at_exact_dp_threshold delete-test: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_at_exact_dp_threshold vacuous-assertion: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_at_exact_dp_threshold wrong-input: not-applicable
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_at_exact_eo_threshold delete-test: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_at_exact_eo_threshold vacuous-assertion: survived
+[fairness] test_gate_boundary_cases.py::test_gate_blocks_at_exact_eo_threshold wrong-input: not-applicable
+[fairness] test_gate_boundary_cases.py::test_gate_deploys_just_below_both_thresholds delete-test: survived
+[fairness] test_gate_boundary_cases.py::test_gate_deploys_just_below_both_thresholds vacuous-assertion: survived
+[fairness] test_gate_boundary_cases.py::test_gate_deploys_just_below_both_thresholds wrong-input: not-applicable
+[security] X1_flip_comparison: real-fixture tests caught; with boundary tests caught
+[security] X2_weaken_combinator: real-fixture tests caught; with boundary tests caught
+[security] X5_widen_threshold: real-fixture tests caught; with boundary tests caught
+[security] X7_swap_outcome: real-fixture tests caught; with boundary tests caught
+[security] test_security_gate.py::test_legacy_imaging_set_is_blocked delete-test: survived
+[security] test_security_gate.py::test_legacy_imaging_set_is_blocked vacuous-assertion: survived
+[security] test_security_gate.py::test_legacy_imaging_set_is_blocked wrong-input: survived
+[security] test_security_gate.py::test_legacy_web_set_is_blocked delete-test: survived
+[security] test_security_gate.py::test_legacy_web_set_is_blocked vacuous-assertion: survived
+[security] test_security_gate.py::test_legacy_web_set_is_blocked wrong-input: caught
+[security] test_security_gate.py::test_project_ci_set_is_deployable delete-test: survived
+[security] test_security_gate.py::test_project_ci_set_is_deployable vacuous-assertion: survived
+[security] test_security_gate.py::test_project_ci_set_is_deployable wrong-input: caught
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_when_only_critical_present delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_when_only_critical_present vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_when_only_critical_present wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_when_high_exceeds_limit delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_when_high_exceeds_limit vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_when_high_exceeds_limit wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_gate_deploys_when_only_moderate_and_low delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_deploys_when_only_moderate_and_low vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_deploys_when_only_moderate_and_low wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_gate_deploys_with_high_count_equal_to_limit delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_deploys_with_high_count_equal_to_limit vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_deploys_with_high_count_equal_to_limit wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_gate_honours_waiver_expiring_today delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_honours_waiver_expiring_today vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_honours_waiver_expiring_today wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_gate_ignores_expired_waiver delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_ignores_expired_waiver vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_ignores_expired_waiver wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_on_missing_report delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_on_missing_report vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_on_missing_report wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_gate_deploys_with_high_count_below_limit delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_deploys_with_high_count_below_limit vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_deploys_with_high_count_below_limit wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_on_one_high_with_default_limit delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_on_one_high_with_default_limit vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_blocks_on_one_high_with_default_limit wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_gate_honours_waiver_expiring_later delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_honours_waiver_expiring_later vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_honours_waiver_expiring_later wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_gate_uses_the_given_evaluation_date delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_gate_uses_the_given_evaluation_date vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_gate_uses_the_given_evaluation_date wrong-input: not-applicable
+[security] test_security_gate_boundary_cases.py::test_real_critical_findings_alone_are_blocked delete-test: survived
+[security] test_security_gate_boundary_cases.py::test_real_critical_findings_alone_are_blocked vacuous-assertion: survived
+[security] test_security_gate_boundary_cases.py::test_real_critical_findings_alone_are_blocked wrong-input: not-applicable
+[compliance] X1_flip_comparison: real-fixture tests caught; with boundary tests caught
+[compliance] X2_weaken_combinator: real-fixture tests survived; with boundary tests caught
+[compliance] X5_widen_threshold: real-fixture tests caught; with boundary tests caught
+[compliance] X7_swap_outcome: real-fixture tests caught; with boundary tests caught
+[compliance] test_compliance_gate.py::test_gender_model_fails_four_fifths delete-test: survived
+[compliance] test_compliance_gate.py::test_gender_model_fails_four_fifths vacuous-assertion: survived
+[compliance] test_compliance_gate.py::test_gender_model_fails_four_fifths wrong-input: caught
+[compliance] test_compliance_gate.py::test_ethnicity_model_fails_four_fifths delete-test: survived
+[compliance] test_compliance_gate.py::test_ethnicity_model_fails_four_fifths vacuous-assertion: survived
+[compliance] test_compliance_gate.py::test_ethnicity_model_fails_four_fifths wrong-input: caught
+[compliance] test_compliance_gate.py::test_reference_model_passes_four_fifths delete-test: survived
+[compliance] test_compliance_gate.py::test_reference_model_passes_four_fifths vacuous-assertion: survived
+[compliance] test_compliance_gate.py::test_reference_model_passes_four_fifths wrong-input: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_below_four_fifths delete-test: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_below_four_fifths vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_below_four_fifths wrong-input: not-applicable
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_at_exact_four_fifths delete-test: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_at_exact_four_fifths vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_at_exact_four_fifths wrong-input: not-applicable
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_above_four_fifths delete-test: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_above_four_fifths vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_above_four_fifths wrong-input: not-applicable
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_uses_lowest_of_three_groups delete-test: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_uses_lowest_of_three_groups vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_uses_lowest_of_three_groups wrong-input: not-applicable
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_on_small_group delete-test: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_on_small_group vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_on_small_group wrong-input: not-applicable
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_on_single_group delete-test: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_on_single_group vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_on_single_group wrong-input: not-applicable
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_when_nobody_selected delete-test: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_when_nobody_selected vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_when_nobody_selected wrong-input: not-applicable
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_on_small_group_even_when_ratio_passes delete-test: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_on_small_group_even_when_ratio_passes vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_blocks_on_small_group_even_when_ratio_passes wrong-input: not-applicable
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_at_exact_minimum_group_size delete-test: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_at_exact_minimum_group_size vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_at_exact_minimum_group_size wrong-input: not-applicable
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_compares_rates_not_counts delete-test: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_compares_rates_not_counts vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_compares_rates_not_counts wrong-input: not-applicable
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_three_groups_within_four_fifths delete-test: caught
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_three_groups_within_four_fifths vacuous-assertion: survived
+[compliance] test_compliance_gate_boundary_cases.py::test_gate_deploys_three_groups_within_four_fifths wrong-input: not-applicable
+
+SUMMARY
+fairness {'caught_real_fixture_tests_only': 3, 'caught_with_boundary_tests': 4, 'total': 4} {'candidates': 30, 'applicable': 23, 'caught': 2, 'by_rule': {'delete-test': {'applicable': 10, 'caught': 0}, 'vacuous-assertion': {'applicable': 10, 'caught': 0}, 'wrong-input': {'applicable': 3, 'caught': 2}}}
+security {'caught_real_fixture_tests_only': 4, 'caught_with_boundary_tests': 4, 'total': 4} {'candidates': 45, 'applicable': 33, 'caught': 2, 'by_rule': {'delete-test': {'applicable': 15, 'caught': 0}, 'vacuous-assertion': {'applicable': 15, 'caught': 0}, 'wrong-input': {'applicable': 3, 'caught': 2}}}
+compliance {'caught_real_fixture_tests_only': 3, 'caught_with_boundary_tests': 4, 'total': 4} {'candidates': 42, 'applicable': 31, 'caught': 3, 'by_rule': {'delete-test': {'applicable': 14, 'caught': 1}, 'vacuous-assertion': {'applicable': 14, 'caught': 0}, 'wrong-input': {'applicable': 3, 'caught': 2}}}
+cocosmic-ray _fairness doncosmic-ray _security done
+cosmic-ray _compliance done
+ M src/fairness_checks.py
+?? src/compliance_gate.py
+?? src/security_gate.py
+exit 0
