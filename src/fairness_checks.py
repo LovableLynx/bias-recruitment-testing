@@ -23,3 +23,13 @@ def compute_performance_metrics(model, X_test, y_true):
         "f1": f1_score(y_true, y_pred),
         "auc": roc_auc_score(y_true, y_proba)
     }
+
+
+def compute_selection_counts(model, X_test, sensitive_features):
+    """Per-group (selected, total) counts of positive predictions, for the compliance gate."""
+    y_pred = model.predict(X_test)
+    counts = {}
+    for group in np.unique(sensitive_features):
+        mask = sensitive_features == group
+        counts[str(group)] = (int(y_pred[mask].sum()), int(mask.sum()))
+    return counts

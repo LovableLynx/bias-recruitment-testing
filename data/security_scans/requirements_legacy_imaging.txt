@@ -1,0 +1,2 @@
+pyyaml==5.3
+pillow==8.0.0

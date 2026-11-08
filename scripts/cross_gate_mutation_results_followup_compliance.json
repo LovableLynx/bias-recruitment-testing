@@ -1,0 +1,317 @@
+{
+  "compliance": {
+    "module": "src/compliance_gate.py",
+    "test_files": [
+      "tests/test_compliance_gate.py",
+      "tests/test_compliance_gate_boundary_cases.py"
+    ],
+    "part_a_enforcement_mutants": [
+      {
+        "id": "X1_flip_comparison",
+        "old": "if impact_ratio(group_counts) < ratio_threshold:",
+        "new": "if impact_ratio(group_counts) >= ratio_threshold:",
+        "real_fixture_tests": "caught",
+        "with_boundary_tests": "caught"
+      },
+      {
+        "id": "X2_weaken_combinator",
+        "old": "if any(total < min_group_size",
+        "new": "if all(total < min_group_size",
+        "real_fixture_tests": "survived",
+        "with_boundary_tests": "caught"
+      },
+      {
+        "id": "X5_widen_threshold",
+        "old": "IMPACT_RATIO_THRESHOLD = 0.8\n",
+        "new": "IMPACT_RATIO_THRESHOLD = 0.1\n",
+        "real_fixture_tests": "caught",
+        "with_boundary_tests": "caught"
+      },
+      {
+        "id": "X7_swap_outcome",
+        "old": "< ratio_threshold:\n        return BLOCK\n    return DEPLOY",
+        "new": "< ratio_threshold:\n        return DEPLOY\n    return BLOCK",
+        "real_fixture_tests": "caught",
+        "with_boundary_tests": "caught"
+      }
+    ],
+    "part_a_summary": {
+      "caught_real_fixture_tests_only": 3,
+      "caught_with_boundary_tests": 4,
+      "total": 4
+    },
+    "part_b_sweep": [
+      {
+        "file": "test_compliance_gate.py",
+        "test_function": "test_gender_model_fails_four_fifths",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate.py",
+        "test_function": "test_gender_model_fails_four_fifths",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate.py",
+        "test_function": "test_gender_model_fails_four_fifths",
+        "rule": "wrong-input",
+        "status": "caught"
+      },
+      {
+        "file": "test_compliance_gate.py",
+        "test_function": "test_ethnicity_model_fails_four_fifths",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate.py",
+        "test_function": "test_ethnicity_model_fails_four_fifths",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate.py",
+        "test_function": "test_ethnicity_model_fails_four_fifths",
+        "rule": "wrong-input",
+        "status": "caught"
+      },
+      {
+        "file": "test_compliance_gate.py",
+        "test_function": "test_reference_model_passes_four_fifths",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate.py",
+        "test_function": "test_reference_model_passes_four_fifths",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate.py",
+        "test_function": "test_reference_model_passes_four_fifths",
+        "rule": "wrong-input",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_below_four_fifths",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_below_four_fifths",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_below_four_fifths",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_at_exact_four_fifths",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_at_exact_four_fifths",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_at_exact_four_fifths",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_above_four_fifths",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_above_four_fifths",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_above_four_fifths",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_uses_lowest_of_three_groups",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_uses_lowest_of_three_groups",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_uses_lowest_of_three_groups",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_on_small_group",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_on_small_group",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_on_small_group",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_on_single_group",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_on_single_group",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_on_single_group",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_when_nobody_selected",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_when_nobody_selected",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_when_nobody_selected",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_on_small_group_even_when_ratio_passes",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_on_small_group_even_when_ratio_passes",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_blocks_on_small_group_even_when_ratio_passes",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_at_exact_minimum_group_size",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_at_exact_minimum_group_size",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_at_exact_minimum_group_size",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_compares_rates_not_counts",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_compares_rates_not_counts",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_compares_rates_not_counts",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_three_groups_within_four_fifths",
+        "rule": "delete-test",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_three_groups_within_four_fifths",
+        "rule": "vacuous-assertion",
+        "status": "survived"
+      },
+      {
+        "file": "test_compliance_gate_boundary_cases.py",
+        "test_function": "test_gate_deploys_three_groups_within_four_fifths",
+        "rule": "wrong-input",
+        "status": "not-applicable"
+      }
+    ],
+    "part_b_summary": {
+      "candidates": 42,
+      "applicable": 31,
+      "caught": 2,
+      "by_rule": {
+        "delete-test": {
+          "applicable": 14,
+          "caught": 0
+        },
+        "vacuous-assertion": {
+          "applicable": 14,
+          "caught": 0
+        },
+        "wrong-input": {
+          "applicable": 3,
+          "caught": 2
+        }
+      }
+    }
+  }
+}
