@@ -1,5 +1,5 @@
 
-# Testing the Fairness Gate: Separating Fairness Classification from Enforcement Correctness in Continuous Fairness Testing for AI Recruitment Pipelines
+# Mutation Testing Deployment-Gate Enforcement Logic Across Fairness, Security and Compliance Gates
 
 **In short:** this project treats "is this AI recruitment model biased?" as a
 question a test suite should answer automatically, not something a human
@@ -12,7 +12,9 @@ the tests themselves: 27 hand-selected and tool-generated mutations injected
 into the gate logic, cross-checking two independent fairness libraries against
 hand-derived formulas rather than trusting either as a black box, and a real
 CI run where the deploy-approval step was verified to correctly skip after a
-deliberately broken model was pushed.
+deliberately broken model was pushed. The same mutation study was then repeated on two
+more gates, a security gate over real vulnerability scans and a compliance
+gate applying the four-fifths hiring rule (Section 4.8).
 
 Proof-of-concept research project exploring fairness detection as an automated,
 CI-integrated software testing artifact, treating bias checks as pytest
